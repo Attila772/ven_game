@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://sprite_sheets/tiles.png" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -336,6 +336,11 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [sub_resource type="OccluderPolygon2D" id=13]
 polygon = PoolVector2Array( 31.2713, 225.473, 31.8916, -128.866, 223.4, -128.236, 226.825, -66.1898, 477.108, -66.1898, 477.775, -128.927, 574.551, -128.927, 574.551, -319.809, 417.04, -321.144, 413.035, -383.882, 192.119, -384.549, 190.785, -544.062, 894.521, -545.347, 894.521, -640.099, 990.688, -640.099, 992.102, -961.126, 1185.14, -961.833, 1183.73, -993.653, 1504.05, -992.946, 1504.05, -770.207, 1411.42, -768.086, 1409.29, -415.239, 1250.9, -415.239, 1249.49, -321.194, 1188.68, -319.073, 1185.85, -287.253, 896.642, -289.374, 893.107, -383.42, 707.138, -384.834, 705.365, 63.2897, 226.158, 64.6246, 224.156, 223.471 )
 
+[sub_resource type="NavigationPolygon" id=14]
+vertices = PoolVector2Array( 1159.51, -338.72, 1163.74, -307.995, 913.711, -307.995, 914.771, -402.288, 917.638, -523.866, 1017.54, -615.908, 1003.76, -944.732, 1204, -939.434, 1388.35, -783.693, 1384.11, -435.13, 1225.19, -428.774, 201.752, 46.9246, 202.811, 207.963, 51.3082, 203.725, 51.3082, -106.698, 201.508, -111.923, 205.998, -43.453, 681.689, 43.7462, 503.45, -40.0852, 428.245, -406.008, 205.998, -407.13, 209.365, -521.621, 1206.12, -971.218, 1486.88, -975.456, 1485.82, -791.11, 917.638, -614.786, 1227.31, -345.077, 505.695, -93.9634, 592.124, -91.7185, 684.867, -399.109, 595.492, -133.25, 591.002, -342.028, 438.347, -344.272 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7, 8, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 11, 14, 15, 16 ), PoolIntArray( 17, 11, 16, 18 ), PoolIntArray( 19, 20, 21, 4 ), PoolIntArray( 22, 23, 24, 8, 7 ), PoolIntArray( 0, 4, 25, 5, 10, 26 ), PoolIntArray( 18, 27, 28, 17 ), PoolIntArray( 29, 17, 28, 30 ), PoolIntArray( 29, 30, 31 ), PoolIntArray( 32, 19, 4, 29 ), PoolIntArray( 4, 3, 29 ), PoolIntArray( 29, 31, 32 ) ]
+outlines = [ PoolVector2Array( 51.3082, -106.698, 51.3082, 203.725, 202.811, 207.963, 201.752, 46.9246, 681.689, 43.7462, 684.867, -399.109, 914.771, -402.288, 913.711, -307.995, 1163.74, -307.995, 1159.51, -338.72, 1227.31, -345.077, 1225.19, -428.774, 1384.11, -435.13, 1388.35, -783.693, 1485.82, -791.11, 1486.88, -975.456, 1206.12, -971.218, 1204, -939.434, 1003.76, -944.732, 1017.54, -615.908, 917.638, -614.786, 917.638, -523.866, 209.365, -521.621, 205.998, -407.13, 428.245, -406.008, 438.347, -344.272, 591.002, -342.028, 595.492, -133.25, 592.124, -91.7185, 505.695, -93.9634, 503.45, -40.0852, 205.998, -43.453, 201.508, -111.923 ) ]
+
 [node name="Node2D2" type="CanvasModulate"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -381,21 +386,26 @@ position = Vector2( 92, 116 )
 [node name="enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 193, -24 )
 
-[node name="Node2D4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 463, -1 )
-
-[node name="Node2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 644, -274 )
-
-[node name="Node2D2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 397, -485 )
-
-[node name="Node2D3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1046, -483 )
-
-[node name="Node2D5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1352, -885 )
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
 occluder = SubResource( 13 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 14 )
+
+[node name="Node2D4" parent="Navigation2D/NavigationPolygonInstance" instance=ExtResource( 4 )]
+position = Vector2( 463, -1 )
+
+[node name="Node2D" parent="Navigation2D/NavigationPolygonInstance" instance=ExtResource( 4 )]
+position = Vector2( 644, -274 )
+
+[node name="Node2D2" parent="Navigation2D/NavigationPolygonInstance" instance=ExtResource( 4 )]
+position = Vector2( 397, -485 )
+
+[node name="Node2D3" parent="Navigation2D/NavigationPolygonInstance" instance=ExtResource( 4 )]
+position = Vector2( 1046, -483 )
+
+[node name="Node2D5" parent="Navigation2D/NavigationPolygonInstance" instance=ExtResource( 4 )]
+position = Vector2( 1352, -885 )
