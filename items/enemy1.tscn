@@ -143,9 +143,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="Node2D2" type="KinematicBody2D" groups=[
-"entity",
-]]
+[node name="Node2D2" type="KinematicBody2D" groups=["entity"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
@@ -161,7 +159,7 @@ texture = ExtResource( 1 )
 flip_h = true
 hframes = 6
 vframes = 6
-frame = 18
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
