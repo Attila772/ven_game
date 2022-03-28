@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprite_sheets/alien1.png" type="Texture" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 0.82085
+radius = 7.99871
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -113,9 +113,6 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CapsuleShape2D" id=7]
-radius = 17.4644
-
 [node name="enemy2" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -132,8 +129,3 @@ frame = 2
 anims/idle = SubResource( 4 )
 anims/run_left = SubResource( 5 )
 anims/run_right = SubResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 7 )
