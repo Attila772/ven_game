@@ -346,10 +346,10 @@ color = Color( 0.494118, 0.470588, 0.470588, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
-margin_left = -2074.0
-margin_top = -1881.0
-margin_right = -638.0
-margin_bottom = -1451.0
+margin_left = -2088.0
+margin_top = -2078.0
+margin_right = -652.0
+margin_bottom = -1648.0
 rect_scale = Vector2( 3.60431, 9.85114 )
 __meta__ = {
 "_edit_use_anchors_": false

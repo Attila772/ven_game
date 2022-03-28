@@ -29,20 +29,21 @@ func _process(delta):
 	if ded and not $AnimationPlayer.is_playing():
 			get_parent().remove_child(self)
 	else:
-		player_pos=Vector2(get_parent().get_parent().get_parent().get_node('Player').get_global_position()-self.get_global_position())
-		get_node("RayCast2D").cast_to=player_pos
-		if $RayCast2D.is_colliding() && $RayCast2D.get_collider().name == "Player":
-			var from = get_global_transform().origin
-			var to =  get_parent().get_parent().get_parent().get_node('Player').get_global_transform().origin
-			var line = get_parent().get_parent().get_simple_path(from,to)
-			move_vector = get_global_transform().origin.direction_to(line[1])
-			if move_vector.angle_to(Vector2(0,1))<=0 and not ded:
-				$AnimationPlayer.play("run_left")
-			else :
-				$AnimationPlayer.play("run_right")
-			shoot()
-		else:
-			$AnimationPlayer.play("idle")
+		if !ded:
+			player_pos=Vector2(get_parent().get_parent().get_parent().get_node('Player').get_global_position()-self.get_global_position())
+			get_node("RayCast2D").cast_to=player_pos
+			if $RayCast2D.is_colliding() && $RayCast2D.get_collider().name == "Player":
+				var from = get_global_transform().origin
+				var to =  get_parent().get_parent().get_parent().get_node('Player').get_global_transform().origin
+				var line = get_parent().get_parent().get_simple_path(from,to)
+				move_vector = get_global_transform().origin.direction_to(line[1])
+				if move_vector.angle_to(Vector2(0,1))<=0 and not ded:
+					$AnimationPlayer.play("run_left")
+				else :
+					$AnimationPlayer.play("run_right")
+				shoot()
+			else:
+				$AnimationPlayer.play("idle")
 
 
 func got_shot(i = 25):
