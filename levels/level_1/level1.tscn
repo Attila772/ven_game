@@ -99,12 +99,12 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/iterations = 20
+shader_param/iterations = 2
 shader_param/formuparam = 1.0
-shader_param/volsteps = 20
-shader_param/stepsize = 0.1
-shader_param/zoom = 0.8
-shader_param/tile = 0.2
+shader_param/volsteps = 10
+shader_param/stepsize = 0.3
+shader_param/zoom = 2.0
+shader_param/tile = 0.5
 shader_param/speed = 0.001
 shader_param/brightness = 0.002
 shader_param/darkmatter = 0.1
