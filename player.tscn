@@ -38,7 +38,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/line_color = Color( 0.933333, 0.196078, 0.196078, 1 )
+shader_param/line_color = Color( 0, 0, 0, 1 )
 shader_param/line_thickness = 1.0
 
 [sub_resource type="Animation" id=3]
@@ -208,7 +208,9 @@ bg_color = Color( 0.380392, 0.160784, 0.160784, 1 )
 
 [sub_resource type="CircleShape2D" id=8]
 
-[node name="Node2D" type="KinematicBody2D" groups=["player"]]
+[node name="Node2D" type="KinematicBody2D" groups=[
+"player",
+]]
 collision_layer = 25
 collision_mask = 25
 script = ExtResource( 2 )
@@ -267,8 +269,8 @@ margin_top = -177.65
 margin_right = 345.443
 margin_bottom = -140.65
 rect_scale = Vector2( 0.933762, 0.821685 )
-custom_colors/font_color = Color( 0.611765, 0.611765, 0.878431, 1 )
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.611765, 0.611765, 0.878431, 1 )
 text = "Sörjegyek: "
 __meta__ = {
 "_edit_use_anchors_": false

@@ -16,9 +16,10 @@ func _process(delta):
 		if not one_shot:
 			$AnimationPlayer.play("boom")
 			one_shot = true
-			for area in $Area2D.get_overlapping_areas():
-				if area.get_parent().is_in_group("entity"):
-					area.get_parent().got_shot(150)
+			for body in $Area2D.get_overlapping_bodies():
+				print(body.name)
+				if body.is_in_group("entity"):
+					body.got_shot(150)
 	if collided and not $AnimationPlayer.is_playing():
 		get_parent().remove_child(self)
 	

@@ -12,10 +12,7 @@ func _ready():
 	pass
 
 
-func _on_Area2D_area_entered(area):
-	if area.get_parent().is_in_group("bullet"):
-		got_shot()
-	pass # Replace with function body.
+
 	
 func _process(delta):
 	if current_cooldown >0:
@@ -33,7 +30,7 @@ func _process(delta):
 		get_node("RayCast2D").cast_to=player_pos
 		if$RayCast2D.is_colliding() && $RayCast2D.get_collider().get_parent().name == "Player":
 			shoot()
-			print (get_node("RayCast2D").get_collider().get_parent().name)
+			
 
 func got_shot(i = 25):
 	if current_col <=0:

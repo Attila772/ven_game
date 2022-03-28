@@ -10,8 +10,13 @@ var grenades = 3
 var grenade_cooldown = 1
 var grenade_current_cooldown = 0
 onready var jegy = $Camera2D/jegy
-var health = 80
+var health = 100
 var touch_ui = {"up":false,"down":false,"right":false,"left":false,"shoot":false,"grenade":false}
+var coll = 0.5
+var current_col = 0
+var ded = false
+
+
 func get_input():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('down') or touch_ui["down"]:
@@ -61,6 +66,10 @@ func _process(delta):
 		current_cooldown-=delta
 	if grenade_current_cooldown >0:
 		grenade_current_cooldown-=delta
+	if current_col >0:
+		current_col-=delta
+	if current_col <0:
+		$Sprite.material.set_shader_param("line_color",Color(0,0,0))
 		
 		
 func animation():
@@ -87,7 +96,14 @@ func grenade():
 	pass
 
 
-
+func got_shot(i = 25):
+	if current_col <=0:
+		current_col = coll
+		$Sprite.material.set_shader_param("line_color",Color(150,150,150))
+		health-=i
+		if health < 0:
+			get_parent().remove_child(self)
+			ded=true
 
 
 

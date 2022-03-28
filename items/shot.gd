@@ -8,5 +8,7 @@ func _process(delta):
 	
 	var collision = move_and_collide(vector*delta*400)
 	if collision:
+		if collision.collider.is_in_group("entity"):
+			collision.collider.got_shot()
 		get_parent().remove_child(self)
 	
