@@ -14,7 +14,6 @@ func _ready():
 func _physics_process(delta):
 	if move_vector.length()>0:
 		move_and_slide(move_vector.normalized()*50)
-		print(rad2deg(move_vector.angle()))
 
 
 	
@@ -37,7 +36,7 @@ func _process(delta):
 			var to =  get_parent().get_parent().get_parent().get_node('Player').get_global_transform().origin
 			var line = get_parent().get_parent().get_simple_path(from,to)
 			move_vector = get_global_transform().origin.direction_to(line[1])
-			if move_vector.angle_to(Vector2(0,1))<=0:
+			if move_vector.angle_to(Vector2(0,1))<=0 and not ded:
 				$AnimationPlayer.play("run_left")
 			else :
 				$AnimationPlayer.play("run_right")
@@ -47,6 +46,7 @@ func _process(delta):
 
 
 func got_shot(i = 25):
+	print(health)
 	if current_col <=0:
 		current_col = coll
 		$Sprite.material.set_shader_param("line_color",Color(150,150,150))
