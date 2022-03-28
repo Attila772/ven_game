@@ -143,7 +143,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="Node2D" type="KinematicBody2D" groups=[
+[node name="Node2D2" type="KinematicBody2D" groups=[
 "entity",
 ]]
 collision_layer = 2

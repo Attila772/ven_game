@@ -30,11 +30,8 @@ func _process(delta):
 		get_node("RayCast2D").cast_to=player_pos
 		if $RayCast2D.is_colliding() && $RayCast2D.get_collider().name == "Player":
 			shoot()
-<<<<<<< Updated upstream
-			
-=======
 			print (get_node("RayCast2D").get_collider().name)
->>>>>>> Stashed changes
+
 
 func got_shot(i = 25):
 	if current_col <=0:
