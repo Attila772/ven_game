@@ -53,8 +53,9 @@ func got_shot(i = 25):
 		health-=i
 		if health < 0:
 			$AnimationPlayer.play("die")
-			ded=true
-			Globalvars.mobs-=1
+			if ded == false:
+				ded=true
+				Globalvars.mobs-=1
 			
 func shoot():
 	if current_cooldown < 0:

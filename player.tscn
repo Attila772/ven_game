@@ -348,7 +348,6 @@ texture = ExtResource( 3 )
 position = Vector2( 37.25, -0.250002 )
 
 [node name="Light2D" type="Light2D" parent="."]
-visible = false
 texture = ExtResource( 6 )
 energy = 0.8
 shadow_enabled = true

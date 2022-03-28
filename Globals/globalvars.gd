@@ -1,6 +1,7 @@
 extends Node
 var mobs=0
 var tickets=0
+var username = ""
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

@@ -11,16 +11,13 @@ config_version=4
 [application]
 
 config/name="Ven"
-run/main_scene="res://levels/level_1/level1.tscn"
+run/main_scene="res://Ui/Control.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globalvars="*res://Globals/globalvars.gd"
-
-[debug]
-
-settings/stdout/print_fps=true
+Http="*res://Globals/http.tscn"
 
 [display]
 
