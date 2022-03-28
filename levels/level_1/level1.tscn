@@ -339,7 +339,6 @@ polygon = PoolVector2Array( 31.2713, 225.473, 31.8916, -128.866, 223.4, -128.236
 [node name="Node2D2" type="CanvasModulate"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource( 2 )
 margin_left = -2074.0
 margin_top = -1881.0

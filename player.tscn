@@ -207,6 +207,7 @@ bg_color = Color( 1, 0, 0, 1 )
 bg_color = Color( 0.380392, 0.160784, 0.160784, 1 )
 
 [sub_resource type="CircleShape2D" id=8]
+radius = 6.56898
 
 [node name="Node2D" type="KinematicBody2D" groups=[
 "player",
