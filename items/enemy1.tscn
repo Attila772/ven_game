@@ -147,9 +147,7 @@ tracks/1/keys = {
 radius = 21.2645
 height = 15.9618
 
-[node name="Node2D" type="KinematicBody2D" groups=[
-"entity",
-]]
+[node name="Node2D" type="KinematicBody2D" groups=["entity"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
@@ -175,11 +173,17 @@ anims/run_left = SubResource( 7 )
 anims/run_right = SubResource( 8 )
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.740082, 0.090271 )
 shape = SubResource( 9 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color( 0.960784, 0.054902, 0.054902, 1 )
+enabled = true
+collision_mask = 16
+collide_with_areas = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

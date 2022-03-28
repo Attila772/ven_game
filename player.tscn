@@ -202,9 +202,9 @@ tracks/2/keys = {
 
 [sub_resource type="CircleShape2D" id=8]
 
-[node name="Node2D" type="KinematicBody2D" groups=[
-"player",
-]]
+[node name="Node2D" type="KinematicBody2D" groups=["player"]]
+collision_layer = 25
+collision_mask = 25
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -226,7 +226,6 @@ anims/run_left = SubResource( 5 )
 anims/run_right = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -0.793701, 10.3181 )
 shape = SubResource( 7 )
 
@@ -241,8 +240,8 @@ margin_top = -175.3
 margin_right = -314.94
 margin_bottom = -161.3
 rect_scale = Vector2( 0.933762, 0.821685 )
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.611765, 0.611765, 0.878431, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Sörjegyek: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -261,9 +260,10 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 57
+collision_mask = 57
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 1.96684, 23.7571 )
 shape = SubResource( 8 )
 
 [node name="aim" type="Node2D" parent="."]

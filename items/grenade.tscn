@@ -41,11 +41,11 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 148.603
+radius = 80.0
 
 [node name="grenade" type="KinematicBody2D"]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="gren" type="Sprite" parent="."]
@@ -68,6 +68,8 @@ anims/boom = SubResource( 2 )
 anims/boom_dumdum = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="explosion" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
