@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://sprite_sheets/tiles.png" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -102,14 +102,14 @@ shader = SubResource( 1 )
 shader_param/iterations = 20
 shader_param/formuparam = 1.0
 shader_param/volsteps = 20
-shader_param/stepsize = 0.05
-shader_param/zoom = 2.0
+shader_param/stepsize = 0.1
+shader_param/zoom = 0.8
 shader_param/tile = 0.2
-shader_param/speed = 0.02
+shader_param/speed = 0.001
 shader_param/brightness = 0.002
 shader_param/darkmatter = 0.1
 shader_param/distfading = 0.65
-shader_param/saturation = 0.75
+shader_param/saturation = 0.8
 shader_param/iResolution = Vector2( 192, 192 )
 shader_param/iMouse = Vector2( 0, 0 )
 
@@ -332,7 +332,10 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 6/shapes = [  ]
 6/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="OccluderPolygon2D" id=13]
+polygon = PoolVector2Array( 31.2713, 225.473, 31.8916, -128.866, 223.4, -128.236, 226.825, -66.1898, 477.108, -66.1898, 477.775, -128.927, 574.551, -128.927, 574.551, -319.809, 417.04, -321.144, 413.035, -383.882, 192.119, -384.549, 190.785, -544.062, 894.521, -545.347, 894.521, -640.099, 990.688, -640.099, 992.102, -961.126, 1185.14, -961.833, 1183.73, -993.653, 1504.05, -992.946, 1504.05, -770.207, 1411.42, -768.086, 1409.29, -415.239, 1250.9, -415.239, 1249.49, -321.194, 1188.68, -319.073, 1185.85, -287.253, 896.642, -289.374, 893.107, -383.42, 707.138, -384.834, 705.365, 63.2897, 226.158, 64.6246, 224.156, 223.471 )
+
+[node name="Node2D" type="CanvasModulate"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
@@ -371,7 +374,7 @@ position = Vector2( 250.673, -496.75 )
 [node name="Node2D8" parent="TileMap" instance=ExtResource( 3 )]
 position = Vector2( 126.924, -52.7577 )
 
-[node name="Node2D" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 92.4355, 35.5441 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 4 )]
@@ -382,3 +385,7 @@ position = Vector2( 304.216, -31.7387 )
 
 [node name="Node2D4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 304.216, 27.7889 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource( 13 )

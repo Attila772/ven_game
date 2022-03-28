@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.1145
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "boom"
 length = 0.6
 tracks/0/type = "value"
@@ -23,8 +23,7 @@ tracks/0/keys = {
 "values": [ 0, 63 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "boom_dumdum"
+[sub_resource type="Animation" id=3]
 length = 3.1
 loop = true
 step = 0.05
@@ -65,8 +64,8 @@ hframes = 8
 vframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/boom = SubResource( 3 )
-anims/boom_dumdum = SubResource( 2 )
+anims/boom = SubResource( 2 )
+anims/boom_dumdum = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
