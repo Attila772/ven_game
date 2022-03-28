@@ -14,6 +14,10 @@ config/name="Ven"
 run/main_scene="res://levels/level_1/level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globalvars="*res://Globals/globalvars.gd"
+
 [debug]
 
 settings/stdout/print_fps=true

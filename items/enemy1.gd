@@ -9,7 +9,7 @@ var shot_cooldown = 2
 var move_vector = Vector2()
 
 func _ready():
-
+	Globalvars.mobs+=1
 	pass
 func _physics_process(delta):
 	if move_vector.length()>0:
@@ -54,6 +54,7 @@ func got_shot(i = 25):
 		if health < 0:
 			$AnimationPlayer.play("die")
 			ded=true
+			Globalvars.mobs-=1
 			
 func shoot():
 	if current_cooldown < 0:
