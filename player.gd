@@ -52,7 +52,7 @@ func _physics_process(delta):
 	else:
 		$AnimationPlayer.play("idle_"+dir)
 	velocity = move_and_slide(velocity)
-	if Input.is_action_just_pressed("shoot") or touch_ui["shoot"]:
+	if Input.is_action_pressed("shoot") or touch_ui["shoot"]:
 		shoot()
 	if Input.is_action_just_pressed("grenade") or touch_ui["grenade"]:
 		grenade()

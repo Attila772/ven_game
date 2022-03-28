@@ -282,8 +282,8 @@ margin_top = -127.095
 margin_right = -209.581
 margin_bottom = -91.095
 rect_scale = Vector2( 0.933762, 0.821685 )
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.611765, 0.611765, 0.878431, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Gránátok:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -318,17 +318,17 @@ margin_left = -353.377
 margin_top = -173.954
 margin_right = -87.3773
 margin_bottom = -135.954
+custom_fonts/font = ExtResource( 5 )
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 9 )
-custom_fonts/font = ExtResource( 5 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 57
-collision_mask = 57
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 8 )

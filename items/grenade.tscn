@@ -5,7 +5,7 @@
 [ext_resource path="res://items/grenade.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 25.1145
+radius = 5.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "boom"

@@ -4,8 +4,8 @@
 [ext_resource path="res://items/enemy1.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 1.813
-height = 40.0181
+radius = 4.0
+height = 12.0
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -151,6 +151,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -171,6 +172,7 @@ anims/run_left = SubResource( 7 )
 anims/run_right = SubResource( 8 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
 modulate = Color( 0.960784, 0.054902, 0.054902, 1 )
 enabled = true
 collision_mask = 16

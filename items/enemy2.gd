@@ -4,19 +4,18 @@ var coll = 0.3
 var ded = false
 var current_col = 0
 var player_pos
-var current_cooldown = -1
-var shot_cooldown = 2
-
+var speed = 130
 func _ready():
 
 	pass
 
 
-
+func _on_Area2D_area_entered(area):
+	if area.get_parent().is_in_group("bullet"):
+		got_shot()
+	pass # Replace with function body.
 	
 func _process(delta):
-	if current_cooldown >0:
-		current_cooldown-=delta
 	if current_col >=0:
 		current_col-=delta
 	else:
@@ -28,14 +27,11 @@ func _process(delta):
 	else:
 		player_pos=Vector2(get_parent().get_node('Player').get_global_position()-self.get_global_position())
 		get_node("RayCast2D").cast_to=player_pos
-		if $RayCast2D.is_colliding() && $RayCast2D.get_collider().name == "Player":
-			shoot()
-<<<<<<< Updated upstream
+		
+func _physics_process(delta):
+	if $RayCast2D.is_colliding() && $RayCast2D.get_collider().name == "Player":
+			movement((player_pos).normalized()*speed)
 			
-=======
-			print (get_node("RayCast2D").get_collider().name)
->>>>>>> Stashed changes
-
 func got_shot(i = 25):
 	if current_col <=0:
 		current_col = coll
@@ -45,10 +41,6 @@ func got_shot(i = 25):
 			$AnimationPlayer.play("die")
 			ded=true
 			
-func shoot():
-	if current_cooldown < 0:
-		current_cooldown = shot_cooldown
-		var shot = load("res://items/shot_enemy.tscn").instance()
-		shot.vector = transform.get_origin().direction_to((get_parent().get_node('Player').get_global_position()))
-		shot.set_global_transform(self.get_global_transform())
-		get_parent().add_child(shot)
+func movement(direction):
+	move_and_slide(direction)
+	pass
