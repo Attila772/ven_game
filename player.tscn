@@ -1,0 +1,276 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://sprite_sheets/player_01.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://sprite_sheets/triangle.png" type="Texture" id=3]
+[ext_resource path="res://sprite_sheets/dan.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+
+
+void fragment() {
+	vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness / 2.0;
+	vec4 color = texture(TEXTURE, UV);
+	
+	float inline = 1.0;
+	float outline = 0.0;
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+		inline *= texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(1.0, outline) - color.a;
+	inline = (1.0 - inline) * color.a;
+	
+	vec4 outlined_result = mix(color, line_color, outline + inline);
+	COLOR = mix(color, outlined_result, outlined_result.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/line_color = Color( 0.933333, 0.196078, 0.196078, 1 )
+shader_param/line_thickness = 1.0
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.3846, -5.40539 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.39515, -5.72037 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.37684, -5.55482 ), Vector2( -1.11549, -6.60594 ), Vector2( -2.54502, -5.97527 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3.72284, -5.50397 ), Vector2( 1.41037, -7.18577 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=7]
+
+[sub_resource type="CircleShape2D" id=8]
+
+[node name="Node2D" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
+hframes = 6
+vframes = 3
+frame = 3
+
+[node name="Sprite" type="Sprite" parent="Sprite"]
+position = Vector2( 2.67293, -6.26754 )
+scale = Vector2( 0.0479436, 0.0450966 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle_left = SubResource( 3 )
+anims/idle_right = SubResource( 4 )
+anims/run_left = SubResource( 5 )
+anims/run_right = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.793701, 10.3181 )
+shape = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2( 0.707423, 0.821943 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = -354.94
+margin_top = -175.3
+margin_right = -314.94
+margin_bottom = -161.3
+rect_scale = Vector2( 1.77045, 2.27417 )
+custom_colors/font_color = Color( 0.611765, 0.611765, 0.878431, 1 )
+text = "Sörjegyek: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="jegy" type="Label" parent="Camera2D"]
+margin_left = -234.0
+margin_top = -173.0
+margin_right = -226.0
+margin_bottom = -159.0
+rect_scale = Vector2( 2.63691, 2.32688 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1.96684, 23.7571 )
+shape = SubResource( 8 )
+
+[node name="aim" type="Node2D" parent="."]
+position = Vector2( -0.749153, 0.374573 )
+rotation = 1.5708
+
+[node name="triangle" type="Sprite" parent="aim"]
+position = Vector2( 27.0553, 0.0863037 )
+rotation = 1.77617
+scale = Vector2( 0.155754, 0.158818 )
+texture = ExtResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="aim"]
+position = Vector2( 37.25, -0.250002 )
