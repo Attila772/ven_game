@@ -1,14 +1,10 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=18 format=2]
-=======
-[gd_scene load_steps=20 format=2]
->>>>>>> Stashed changes
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sprite_sheets/tiles.png" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://items/ticket.tscn" type="PackedScene" id=3]
 [ext_resource path="res://items/enemy1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://items/enemy2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://items/grenade.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -340,16 +336,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [sub_resource type="OccluderPolygon2D" id=13]
 polygon = PoolVector2Array( 31.2713, 225.473, 31.8916, -128.866, 223.4, -128.236, 226.825, -66.1898, 477.108, -66.1898, 477.775, -128.927, 574.551, -128.927, 574.551, -319.809, 417.04, -321.144, 413.035, -383.882, 192.119, -384.549, 190.785, -544.062, 894.521, -545.347, 894.521, -640.099, 990.688, -640.099, 992.102, -961.126, 1185.14, -961.833, 1183.73, -993.653, 1504.05, -992.946, 1504.05, -770.207, 1411.42, -768.086, 1409.29, -415.239, 1250.9, -415.239, 1249.49, -321.194, 1188.68, -319.073, 1185.85, -287.253, 896.642, -289.374, 893.107, -383.42, 707.138, -384.834, 705.365, 63.2897, 226.158, 64.6246, 224.156, 223.471 )
 
-<<<<<<< Updated upstream
-[node name="Node2D" type="CanvasModulate"]
-=======
-[sub_resource type="NavigationPolygon" id=14]
-vertices = PoolVector2Array( 1388.53, -797.093, 1388.53, -439.356, 1326, -503, 1323, -782, 1228.35, -439.356, 1239, -500, 1212.33, -933.247, 1209.66, -975.961, 1476.63, -973.292, 1476.63, -797.093, 1199, -779, 1197, -879, 1007.11, -939.677, 1066, -878, 1012.11, -618.224, 1070, -626, 516.414, -40.1621, 512.788, -94.1579, 596.001, -94.6523, 673.296, 37.9878, 202.726, 37.2586, 207.155, 208.323, 44.5204, 209.737, 46.0409, -104.389, 229.89, -428.677, 229.89, -524.786, 932.016, -519.446, 443.464, -423.338, 1235, -630, 1166.95, -343.248, 915.998, -404.65, 202.726, -101.565, 202.726, -36.1576, 685.692, -405.015, 602.729, -351.967, 931.596, -613.096, 451.473, -359.265, 1163.56, -315.581, 924.628, -312.911, 1223.12, -348.368 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 1, 4, 5 ), PoolIntArray( 6, 7, 8, 9, 0 ), PoolIntArray( 6, 0, 3, 10, 11 ), PoolIntArray( 12, 6, 11, 13 ), PoolIntArray( 14, 12, 13, 15 ), PoolIntArray( 16, 17, 18, 19 ), PoolIntArray( 20, 21, 22, 23 ), PoolIntArray( 24, 25, 26, 27 ), PoolIntArray( 14, 15, 28, 5, 4, 29, 30, 26 ), PoolIntArray( 23, 31, 32 ), PoolIntArray( 20, 23, 32 ), PoolIntArray( 19, 20, 32, 16 ), PoolIntArray( 33, 19, 18, 34 ), PoolIntArray( 26, 35, 14 ), PoolIntArray( 36, 27, 26, 33 ), PoolIntArray( 37, 38, 30, 29 ), PoolIntArray( 4, 39, 29 ), PoolIntArray( 26, 30, 33 ), PoolIntArray( 33, 34, 36 ) ]
-outlines = [ PoolVector2Array( 46.0409, -104.389, 44.5204, 209.737, 207.155, 208.323, 202.726, 37.2586, 673.296, 37.9878, 685.692, -405.015, 915.998, -404.65, 924.628, -312.911, 1163.56, -315.581, 1166.95, -343.248, 1223.12, -348.368, 1228.35, -439.356, 1388.53, -439.356, 1388.53, -797.093, 1476.63, -797.093, 1476.63, -973.292, 1209.66, -975.961, 1212.33, -933.247, 1007.11, -939.677, 1012.11, -618.224, 931.596, -613.096, 932.016, -519.446, 229.89, -524.786, 229.89, -428.677, 443.464, -423.338, 451.473, -359.265, 602.729, -351.967, 596.001, -94.6523, 512.788, -94.1579, 516.414, -40.1621, 202.726, -36.1576, 202.726, -101.565 ), PoolVector2Array( 1066, -878, 1070, -626, 1235, -630, 1239, -500, 1326, -503, 1323, -782, 1199, -779, 1197, -879 ) ]
-
 [node name="Node2D2" type="CanvasModulate"]
->>>>>>> Stashed changes
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -413,12 +400,3 @@ position = Vector2( 1352, -885 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
 occluder = SubResource( 13 )
-<<<<<<< Updated upstream
-=======
-
-[node name="Navigation2D" type="Navigation2D" parent="."]
-visible = false
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 14 )
->>>>>>> Stashed changes
