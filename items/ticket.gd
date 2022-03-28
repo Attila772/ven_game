@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready():
+	Globalvars.tickets+=1
 	pass
 
 
@@ -11,4 +12,5 @@ func _on_Area2D_area_entered(area):
 		
 		area.get_parent().ticket+=1
 		get_parent().remove_child(self)
+		Globalvars.tickets-=1
 	pass # Replace with function body.
