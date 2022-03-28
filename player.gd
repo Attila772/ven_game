@@ -10,6 +10,7 @@ var grenades = 3
 var grenade_cooldown = 1
 var grenade_current_cooldown = 0
 onready var jegy = $Camera2D/jegy
+var health = 80
 var touch_ui = {"up":false,"down":false,"right":false,"left":false,"shoot":false,"grenade":false}
 func get_input():
 	velocity = Vector2.ZERO
@@ -52,6 +53,10 @@ func _physics_process(delta):
 		grenade()
 
 func _process(delta):
+	if $Camera2D/ProgressBar.value != health:
+		$Camera2D/ProgressBar.value = health
+	if int($Camera2D/grenade.text) != grenades:
+		$Camera2D/grenade.text = str(grenades)
 	if current_cooldown >0:
 		current_cooldown-=delta
 	if grenade_current_cooldown >0:
