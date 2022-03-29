@@ -10,7 +10,7 @@ var grenades = 3
 var grenade_cooldown = 1
 var grenade_current_cooldown = 0
 onready var jegy = $Camera2D/jegy
-var health = 1000
+var health = 100
 var touch_ui = {"up":false,"down":false,"right":false,"left":false,"shoot":false,"grenade":false}
 var coll = 0.5
 var current_col = 0
@@ -68,8 +68,9 @@ func _process(delta):
 		get_tree().quit()
 	if ticket > 0 and Globalvars.tickets ==0 and Globalvars.mobs ==0 and not http_sendt:
 		if Globalvars.levels.size() == Globalvars.current_level:
-			Http.http_request(username,time)
-			http_sendt = true
+#			Http.http_request(username,time)
+#			http_sendt = true
+			pass
 		else:
 			get_tree().change_scene(Globalvars.levels[Globalvars.current_level])
 		
