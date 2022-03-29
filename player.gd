@@ -19,6 +19,8 @@ var username = Globalvars.username
 var ded = false
 var http_sendt = false
 
+func _ready():
+	Globalvars.current_level+=1
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -65,8 +67,11 @@ func _process(delta):
 	if Http.success:
 		get_tree().quit()
 	if ticket > 0 and Globalvars.tickets ==0 and Globalvars.mobs ==0 and not http_sendt:
-		Http.http_request(username,time)
-		http_sendt = true
+		if Globalvars.levels.size() == Globalvars.current_level:
+			Http.http_request(username,time)
+			http_sendt = true
+		else:
+			get_tree().change_scene(Globalvars.levels[Globalvars.current_level])
 		
 	if $Camera2D/ProgressBar.value != health:
 		$Camera2D/ProgressBar.value = health

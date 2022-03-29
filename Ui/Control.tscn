@@ -194,18 +194,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button4" type="Button" parent="."]
-margin_left = 710.818
-margin_top = 74.0
-margin_right = 957.818
-margin_bottom = 144.0
-custom_fonts/font = ExtResource( 3 )
-text = "Set"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Button3" type="Button" parent="."]
 margin_left = 300.0
 margin_top = 500.0
@@ -215,25 +203,16 @@ custom_fonts/font = ExtResource( 3 )
 text = "Exit"
 flat = true
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 738.409
-margin_top = 16.3182
-margin_right = 1012.41
-margin_bottom = 71.3182
+[node name="Label" type="Label" parent="."]
+margin_left = 433.238
+margin_top = 6.60712
+margin_right = 569.238
+margin_bottom = 78.6071
 custom_fonts/font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 573.491
-margin_top = 28.5905
-margin_right = 803.491
-margin_bottom = 119.591
-custom_fonts/font = ExtResource( 3 )
-text = "Username:"
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

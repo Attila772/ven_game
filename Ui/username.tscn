@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Ui/font.tres" type="DynamicFont" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 592.0
+margin_bottom = 323.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 286.746
+margin_top = 100.908
+margin_right = 501.746
+margin_bottom = 140.908
+custom_fonts/font = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 121.93
+margin_top = 101.748
+margin_right = 245.93
+margin_bottom = 137.748
+custom_fonts/font = ExtResource( 2 )
+text = "Username:"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 226.31
+margin_top = 175.197
+margin_right = 349.31
+margin_bottom = 226.197
+custom_fonts/font = ExtResource( 2 )
+text = "Set"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
