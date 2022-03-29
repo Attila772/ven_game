@@ -200,13 +200,13 @@ tracks/2/keys = {
 
 [sub_resource type="CapsuleShape2D" id=7]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.380392, 0.160784, 0.160784, 1 )
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=10]
 radius = 6.56898
 
 [node name="Node2D" type="KinematicBody2D" groups=[
@@ -319,7 +319,7 @@ margin_left = -353.377
 margin_top = -173.954
 margin_right = -87.3773
 margin_bottom = -135.954
-custom_styles/fg = SubResource( 10 )
+custom_styles/fg = SubResource( 8 )
 custom_styles/bg = SubResource( 9 )
 custom_fonts/font = ExtResource( 5 )
 percent_visible = false
@@ -332,7 +332,7 @@ collision_layer = 57
 collision_mask = 57
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="aim" type="Node2D" parent="."]
 position = Vector2( -0.749153, 0.374573 )
@@ -348,6 +348,7 @@ texture = ExtResource( 3 )
 position = Vector2( 37.25, -0.250002 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 6 )
 energy = 0.8
 shadow_enabled = true
