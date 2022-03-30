@@ -20,6 +20,7 @@ var ded = false
 var http_sendt = false
 
 func _ready():
+	print("Time: ",Globalvars.time)
 	Globalvars.current_level+=1
 
 func get_input():
@@ -63,12 +64,12 @@ func _physics_process(delta):
 		grenade()
 
 func _process(delta):
-	time += delta
+	Globalvars.time += delta
 	if Http.success:
 		get_tree().quit()
 	if ticket > 0 and Globalvars.tickets ==0 and Globalvars.mobs ==0 and not http_sendt:
 		if Globalvars.levels.size() == Globalvars.current_level:
-			Http.http_request(username,time)
+			Http.http_request(username,Globalvars.time)
 			http_sendt = true
 		else:
 			get_tree().change_scene(Globalvars.levels[Globalvars.current_level])
