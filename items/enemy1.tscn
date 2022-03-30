@@ -141,9 +141,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="Node2D2" type="KinematicBody2D" groups=[
-"entity",
-]]
+[node name="Node2D2" type="KinematicBody2D" groups=["entity"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
