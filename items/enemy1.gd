@@ -46,7 +46,7 @@ func _process(delta):
 				$AnimationPlayer.play("idle")
 
 
-func got_shot(i = 26):
+func got_shot(i = 51):
 	print(health)
 	if current_col <=0:
 		current_col = coll

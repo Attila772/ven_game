@@ -6,7 +6,7 @@ var time = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var levels = ["res://levels/level_1/level1.tscn","res://levels/level_2/level2.tscn"]
+var levels = ["res://levels/level_1/level1.tscn","res://levels/level_2/level2.tscn","res://levels/level_3/level3.tscn"]
 var current_level = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
