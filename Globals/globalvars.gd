@@ -17,5 +17,6 @@ func _ready():
 #func _process(delta):
 #	pass
 func set_to_0():
+	current_level = 0
 	mobs=0
 	tickets=0

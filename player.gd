@@ -25,29 +25,60 @@ func _ready():
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed('down') or touch_ui["down"]:
-		dir = "right"
-		anim = "run"
-		$aim.set_rotation_degrees(90)
-		velocity.y += 1
-	if Input.is_action_pressed('up') or touch_ui["up"]:
-		dir = "left"
-		anim = "run"
-		$aim.set_rotation_degrees(270)
-		velocity.y -= 1
-	if Input.is_action_pressed('right') or touch_ui["right"]:
-		dir = "right"
-		anim ="run"
-		$aim.set_rotation_degrees(0)
-		velocity.x += 1
-	if Input.is_action_pressed('left') or touch_ui["left"]:
-		$aim.set_rotation_degrees(180)
-		dir = "left"
-		anim = "run"
-		velocity.x -= 1
 	
-	# Make sure diagonal movement isn't faster
-	velocity = velocity.normalized() * speed
+	var move_input = Vector2(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	).clamped(1) #just in case someone uses buttons - Joystick already returns clamped value
+
+	if move_input.length()>Vector2.ZERO.length():
+		if abs(move_input.y)>abs(move_input.x):
+			if move_input.y > 0:
+				dir = "left"
+				anim = "run"
+				$aim.set_rotation_degrees(90)
+			else:
+				dir = "right"
+				anim = "run"
+				$aim.set_rotation_degrees(270)
+		else:
+			if move_input.x > 0:
+				dir = "right"
+				anim ="run"
+				$aim.set_rotation_degrees(0)
+			else:
+			
+				$aim.set_rotation_degrees(180)
+				dir = "left"
+				anim = "run"
+		pass
+	velocity = move_input.normalized() * speed
+		
+#	if Input.is_action_pressed('down') or touch_ui["down"]:
+#		dir = "right"
+#		anim = "run"
+#		$aim.set_rotation_degrees(90)
+#		velocity.y += 1
+#	if Input.is_action_pressed('up') or touch_ui["up"]:
+#		dir = "left"
+#		anim = "run"
+#		$aim.set_rotation_degrees(270)
+#		velocity.y -= 1
+#	if Input.is_action_pressed('right') or touch_ui["right"]:
+#		dir = "right"
+#		anim ="run"
+#		$aim.set_rotation_degrees(0)
+#		velocity.x += 1
+#	if Input.is_action_pressed('left') or touch_ui["left"]:
+#		$aim.set_rotation_degrees(180)
+#		dir = "left"
+#		anim = "run"
+#		velocity.x -= 1
+#		velocity = velocity.normalized().speed
+
+
+
+
 
 func _physics_process(delta):
 	
@@ -119,8 +150,19 @@ func got_shot(i = 25):
 		$Sprite.material.set_shader_param("line_color",Color(150,150,150))
 		health-=i
 		if health < 0:
-			get_parent().remove_child(self)
+			get_tree().paused = true
+			var ded  = load("res://Ui/ded.tscn").instance()
+			ded.rect_position = Vector2(-200,-100)
+			$Camera2D.add_child(ded)
+		
 			ded=true
 
 
+func _on_TouchScreenButton_pressed():
+	shoot()
+	pass # Replace with function body.
 
+
+func _on_TouchScreenButton2_released():
+	grenade()
+	pass # Replace with function body.

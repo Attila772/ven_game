@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Ui/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Ui/ded.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 461.0
+margin_bottom = 260.0
+color = Color( 0.258824, 0.25098, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 188.88
+margin_top = 20.69
+margin_right = 269.88
+margin_bottom = 56.69
+custom_fonts/font = ExtResource( 1 )
+text = "U ded "
+
+[node name="Button" type="Button" parent="."]
+margin_left = 152.839
+margin_top = 129.479
+margin_right = 297.839
+margin_bottom = 192.479
+custom_fonts/font = ExtResource( 1 )
+text = "Restart"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 149.502
+margin_top = 173.529
+margin_right = 294.502
+margin_bottom = 236.529
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_Button2_button_down"]
