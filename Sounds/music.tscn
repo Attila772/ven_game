@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sounds/Scheming Weasel faster.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/In the monsters lair.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/Spaceman.mp3" type="AudioStream" id=2]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -10.0
 autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0

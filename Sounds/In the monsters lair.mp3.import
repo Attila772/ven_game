@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/In the monsters lair.mp3-7e3c2c3854586056ebe5db6329077761.mp3str"
+
+[deps]
+
+source_file="res://Sounds/In the monsters lair.mp3"
+dest_files=[ "res://.import/In the monsters lair.mp3-7e3c2c3854586056ebe5db6329077761.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

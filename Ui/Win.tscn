@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Ui/nagyobb.tres" type="DynamicFont" id=1]
+[ext_resource path="res://sprite_sheets/univenzum.png" type="Texture" id=2]
+[ext_resource path="res://Ui/Win.gd" type="Script" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1053.0
+margin_bottom = 614.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 258.166, 354.698 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 48.7487
+margin_top = 35.5711
+margin_right = 393.749
+margin_bottom = 125.571
+custom_fonts/font = ExtResource( 1 )
+text = "NYERTÉL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 431.772
+margin_top = 132.325
+margin_right = 554.772
+margin_bottom = 222.325
+custom_fonts/font = ExtResource( 1 )
+text = "time"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 534.292
+margin_top = 362.555
+margin_right = 737.292
+margin_bottom = 458.555
+custom_fonts/font = ExtResource( 1 )
+text = "MENU"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

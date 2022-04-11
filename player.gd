@@ -26,55 +26,57 @@ func _ready():
 func get_input():
 	velocity = Vector2.ZERO
 	
-	var move_input = Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
-		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	).clamped(1) #just in case someone uses buttons - Joystick already returns clamped value
+	
+	
+#	var move_input = Vector2(
+#		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+#		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+#	).clamped(1) #just in case someone uses buttons - Joystick already returns clamped value
+#
+#	if move_input.length()>Vector2.ZERO.length():
+#		if abs(move_input.y)>abs(move_input.x):
+#			if move_input.y > 0:
+#				dir = "left"
+#				anim = "run"
+#				$aim.set_rotation_degrees(90)
+#			else:
+#				dir = "right"
+#				anim = "run"
+#				$aim.set_rotation_degrees(270)
+#		else:
+#			if move_input.x > 0:
+#				dir = "right"
+#				anim ="run"
+#				$aim.set_rotation_degrees(0)
+#			else:
+#
+#				$aim.set_rotation_degrees(180)
+#				dir = "left"
+#				anim = "run"
+#		pass
+#	velocity = move_input.normalized() * speed
 
-	if move_input.length()>Vector2.ZERO.length():
-		if abs(move_input.y)>abs(move_input.x):
-			if move_input.y > 0:
-				dir = "left"
-				anim = "run"
-				$aim.set_rotation_degrees(90)
-			else:
-				dir = "right"
-				anim = "run"
-				$aim.set_rotation_degrees(270)
-		else:
-			if move_input.x > 0:
-				dir = "right"
-				anim ="run"
-				$aim.set_rotation_degrees(0)
-			else:
-			
-				$aim.set_rotation_degrees(180)
-				dir = "left"
-				anim = "run"
-		pass
-	velocity = move_input.normalized() * speed
-		
-#	if Input.is_action_pressed('down') or touch_ui["down"]:
-#		dir = "right"
-#		anim = "run"
-#		$aim.set_rotation_degrees(90)
-#		velocity.y += 1
-#	if Input.is_action_pressed('up') or touch_ui["up"]:
-#		dir = "left"
-#		anim = "run"
-#		$aim.set_rotation_degrees(270)
-#		velocity.y -= 1
-#	if Input.is_action_pressed('right') or touch_ui["right"]:
-#		dir = "right"
-#		anim ="run"
-#		$aim.set_rotation_degrees(0)
-#		velocity.x += 1
-#	if Input.is_action_pressed('left') or touch_ui["left"]:
-#		$aim.set_rotation_degrees(180)
-#		dir = "left"
-#		anim = "run"
-#		velocity.x -= 1
-#		velocity = velocity.normalized().speed
+	if Input.is_action_pressed('down') or touch_ui["down"]:
+		dir = "right"
+		anim = "run"
+		$aim.set_rotation_degrees(90)
+		velocity.y += 1
+	if Input.is_action_pressed('up') or touch_ui["up"]:
+		dir = "left"
+		anim = "run"
+		$aim.set_rotation_degrees(270)
+		velocity.y -= 1
+	if Input.is_action_pressed('right') or touch_ui["right"]:
+		dir = "right"
+		anim ="run"
+		$aim.set_rotation_degrees(0)
+		velocity.x += 1
+	if Input.is_action_pressed('left') or touch_ui["left"]:
+		$aim.set_rotation_degrees(180)
+		dir = "left"
+		anim = "run"
+		velocity.x -= 1
+	velocity = velocity.normalized()*speed
 
 
 
@@ -88,6 +90,7 @@ func _physics_process(delta):
 		animation()
 	else:
 		$AnimationPlayer.play("idle_"+dir)
+		anim ="idle"
 	velocity = move_and_slide(velocity)
 	if Input.is_action_pressed("shoot") or touch_ui["shoot"]:
 		shoot()
@@ -95,9 +98,13 @@ func _physics_process(delta):
 		grenade()
 
 func _process(delta):
+#	if anim == "run" and not $walk.playing:
+#		$walk.play()
+#	elif anim =="idle":
+#		$walk.playing = false
 	Globalvars.time += delta
 	if Http.success:
-		get_tree().quit()
+		get_tree().change_scene("res://Ui/Win.tscn")
 	if ticket > 0 and Globalvars.tickets ==0 and Globalvars.mobs ==0 and not http_sendt:
 		if Globalvars.levels.size() == Globalvars.current_level:
 
@@ -126,6 +133,7 @@ func animation():
 
 func shoot():
 	if current_cooldown < 0:
+		$shoot.play()
 		current_cooldown = shot_cooldown
 		var shot = load("res://items/shot.tscn").instance()
 		shot.vector = transform.get_origin().direction_to($aim/Position2D.get_global_transform().get_origin())

@@ -10,10 +10,10 @@ func _ready():
 func http_request(username,time):
 	var HTTP = HTTPClient.new()
 	var HEADERS = ["User-Agent: Jeff", "Content-Type: application/json"]
-	$HTTPRequest.request("http://127.0.0.1:5000/set",["Data:"+str(username)+"_"+str(time)])
+	$HTTPRequest.request("http://167.86.96.99:6969/set",["Data:"+str(username)+"_"+str(time)])
 
 func leaderboard():
-	$HTTPRequest.request("http://127.0.0.1:5000/leaderboard")
+	$HTTPRequest.request("http://167.86.96.99:6969/leaderboard")
 
 func _on_request_completed(result, response_code, headers, body):
 	leaderboard = JSON.parse(body.get_string_from_utf8())

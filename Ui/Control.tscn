@@ -150,9 +150,6 @@ shader_param/line_thickness = 5.921
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
@@ -160,7 +157,7 @@ margin_right = 1055.0
 margin_bottom = 627.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -213,6 +210,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button4" type="Button" parent="."]
+margin_left = 8.49489
+margin_top = 556.887
+margin_right = 73.4949
+margin_bottom = 599.887
+text = "?"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = 56.7674
+margin_top = 571.029
+margin_right = 231.767
+margin_bottom = 585.029
+text = "Electric Callboy - Spaceman"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 729.97
+margin_top = 10.5946
+margin_right = 1007.97
+margin_bottom = 151.595
+custom_fonts/font = ExtResource( 3 )
+text = "megyen - W A S D
+shoot - SPACE
+gránát -  E"
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]

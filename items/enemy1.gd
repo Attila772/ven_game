@@ -60,6 +60,7 @@ func got_shot(i = 51):
 			
 func shoot():
 	if current_cooldown < 0:
+		$shoot.play()
 		current_cooldown = shot_cooldown
 		var shot = load("res://items/shot_enemy.tscn").instance()
 		shot.vector = transform.get_origin().direction_to((get_parent().get_parent().get_parent().get_node('Player').get_global_position()))
